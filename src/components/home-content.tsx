@@ -98,7 +98,21 @@ export function HomeContent({ products, announcement, visitorCount, categories: 
     }, [products, selectedCategory, searchTerm, sortKey])
 
     return (
-        <main className="container py-8 md:py-16">
+        <main className="container py-8 md:py-16 relative">
+
+            <section className="mb-8 crayon-section p-6 md:p-8 overflow-hidden">
+                <div className="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                    <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-2 font-semibold">Shin-chan Mood</p>
+                        <h1 className="text-2xl md:text-4xl font-black leading-tight">{t('home.title')} 🖍️</h1>
+                        <p className="text-sm md:text-base text-muted-foreground mt-2">欢迎来到脑洞大开的数字小卖部，挑点你喜欢的吧！</p>
+                    </div>
+                    <div className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold bg-accent/55 px-4 py-2 rounded-full border-2 border-border/60">
+                        <span>🐶</span>
+                        <span>今天也要元气满满地买买买</span>
+                    </div>
+                </div>
+            </section>
 
             {/* Announcement Banner */}
             {announcement && (
@@ -153,7 +167,7 @@ export function HomeContent({ products, announcement, visitorCount, categories: 
                 </div>
 
                 {/* Top Toolbar: Search & Filter Pills */}
-                <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between bg-card/50 p-1 rounded-xl">
+                <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between bg-card/80 p-2 rounded-2xl border-2 border-dashed border-border/70">
                     {/* Search Bar */}
                     <div className="relative w-full md:w-72 shrink-0">
                         <svg
@@ -180,8 +194,8 @@ export function HomeContent({ products, announcement, visitorCount, categories: 
                                 variant={selectedCategory === null ? "default" : "outline"}
                                 size="sm"
                                 className={cn(
-                                    "rounded-full whitespace-nowrap transition-all duration-300",
-                                    selectedCategory === null ? "bg-primary shadow-md shadow-primary/20" : "bg-transparent border-dashed border-border hover:bg-muted"
+                                    "rounded-full whitespace-nowrap transition-all duration-300 border-2",
+                                    selectedCategory === null ? "bg-primary shadow-md shadow-primary/20 border-primary/50" : "bg-transparent border-dashed border-border hover:bg-muted"
                                 )}
                                 onClick={() => setSelectedCategory(null)}
                             >
@@ -193,8 +207,8 @@ export function HomeContent({ products, announcement, visitorCount, categories: 
                                     variant={selectedCategory === category ? "default" : "outline"}
                                     size="sm"
                                     className={cn(
-                                        "rounded-full capitalize whitespace-nowrap transition-all duration-300",
-                                        selectedCategory === category ? "bg-primary shadow-md shadow-primary/20" : "bg-transparent hover:bg-muted"
+                                        "rounded-full capitalize whitespace-nowrap transition-all duration-300 border-2",
+                                        selectedCategory === category ? "bg-primary shadow-md shadow-primary/20 border-primary/50" : "bg-transparent hover:bg-muted border-dashed border-border"
                                     )}
                                     onClick={() => setSelectedCategory(category)}
                                 >
