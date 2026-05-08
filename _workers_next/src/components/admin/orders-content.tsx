@@ -50,7 +50,7 @@ function exportUrl(params: Record<string, string | number | undefined | null>) {
         if (!str) return
         sp.set(k, str)
     })
-    return `/admin/export/download?${sp.toString()}`
+    return `/admin/data/download?${sp.toString()}`
 }
 
 export function AdminOrdersContent({
